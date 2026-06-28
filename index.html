@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 20px;
+}
+
+.container{
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+h1{
+    text-align: center;
+}
+
+.question{
+    margin-bottom: 20px;
+}
+
+button{
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#result{
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>HTML Quiz</h1>
+
+<form id="quiz">
+
+<div class="question">
+<p><strong>1. What does HTML stand for?</strong></p>
+
+<label><input type="radio" name="q1" value="correct"> HyperText Markup Language</label><br>
+
+<label><input type="radio" name="q1" value="wrong"> HighText Machine Language</label><br>
+
+<label><input type="radio" name="q1" value="wrong"> Hyper Transfer Markup Language</label>
+</div>
+
+<div class="question">
+<p><strong>2. Which tag creates a paragraph?</strong></p>
+
+<label><input type="radio" name="q2" value="wrong"> &lt;div&gt;</label><br>
+
+<label><input type="radio" name="q2" value="correct"> &lt;p&gt;</label><br>
+
+<label><input type="radio" name="q2" value="wrong"> &lt;h1&gt;</label>
+</div>
+
+<div class="question">
+<p><strong>3. Which tag inserts an image?</strong></p>
+
+<label><input type="radio" name="q3" value="correct"> &lt;img&gt;</label><br>
+
+<label><input type="radio" name="q3" value="wrong"> &lt;image&gt;</label><br>
+
+<label><input type="radio" name="q3" value="wrong"> &lt;pic&gt;</label>
+</div>
+
+<div class="question">
+<p><strong>4. Which tag creates a hyperlink?</strong></p>
+
+<label><input type="radio" name="q4" value="wrong"> &lt;link&gt;</label><br>
+
+<label><input type="radio" name="q4" value="correct"> &lt;a&gt;</label><br>
+
+<label><input type="radio" name="q4" value="wrong"> &lt;url&gt;</label>
+</div>
+
+<div class="question">
+<p><strong>5. Which tag creates the biggest heading?</strong></p>
+
+<label><input type="radio" name="q5" value="correct"> &lt;h1&gt;</label><br>
+
+<label><input type="radio" name="q5" value="wrong"> &lt;h6&gt;</label><br>
+
+<label><input type="radio" name="q5" value="wrong"> &lt;head&gt;</label>
+</div>
+
+<button type="submit">Submit Quiz</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+const form = document.getElementById("quiz");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let score = 0;
+
+    const answers = document.querySelectorAll("input[type='radio']:checked");
+
+    answers.forEach(function(answer) {
+        if (answer.value === "correct") {
+            score++;
+        }
+    });
+
+    document.getElementById("result").innerHTML =
+        "You scored " + score + " out of 5!";
+});
+</script>
+
+</body>
+</html>
